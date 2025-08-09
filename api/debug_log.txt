@@ -1,0 +1,117 @@
+🚀 Iniciando capture_paypal_order_debug.php
+✅ Datos recibidos: {"orderID":"1JC91825ES006763N","csrf_token":"5a1dbf83509bf5bf00d5a26015e1150ce75cd385f52d4ec4b36060e71d1e5c83"}
+✅ checkout_data presente.
+🚀 Iniciando capture_paypal_order_debug.php
+✅ Datos recibidos: {"orderID":"9WK75218CM585660M","csrf_token":"5a1dbf83509bf5bf00d5a26015e1150ce75cd385f52d4ec4b36060e71d1e5c83"}
+✅ checkout_data presente.
+📡 Enviando solicitud a PayPal...
+📥 Respuesta PayPal HTTP 201: {"id":"9WK75218CM585660M","status":"COMPLETED","payment_source":{"paypal":{"email_address":"sb-vio6941408968@personal.example.com","account_id":"8JHXFTMN52DXL","account_status":"VERIFIED","name":{"given_name":"John","surname":"Doe"},"address":{"country_code":"VE"}}},"purchase_units":[{"reference_id":"default","payments":{"captures":[{"id":"2J065337FK973141C","status":"COMPLETED","amount":{"currency_code":"USD","value":"24.98"},"final_capture":true,"seller_protection":{"status":"ELIGIBLE","dispute_categories":["ITEM_NOT_RECEIVED","UNAUTHORIZED_TRANSACTION"]},"seller_receivable_breakdown":{"gross_amount":{"currency_code":"USD","value":"24.98"},"paypal_fee":{"currency_code":"USD","value":"1.65"},"net_amount":{"currency_code":"USD","value":"23.33"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/payments/captures/2J065337FK973141C","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v2/payments/captures/2J065337FK973141C/refund","rel":"refund","method":"POST"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/9WK75218CM585660M","rel":"up","method":"GET"}],"create_time":"2025-06-26T04:17:04Z","update_time":"2025-06-26T04:17:04Z"}]}}],"payer":{"name":{"given_name":"John","surname":"Doe"},"email_address":"sb-vio6941408968@personal.example.com","payer_id":"8JHXFTMN52DXL","address":{"country_code":"VE"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/9WK75218CM585660M","rel":"self","method":"GET"}]}
+✅ Pago completado. Captura válida.
+🚀 Iniciando capture_paypal_order_debug.php
+✅ Datos recibidos: {"orderID":"715327203P1793602","csrf_token":"5a1dbf83509bf5bf00d5a26015e1150ce75cd385f52d4ec4b36060e71d1e5c83"}
+✅ checkout_data presente.
+📡 Enviando solicitud a PayPal...
+📥 Respuesta PayPal HTTP 201: {"id":"715327203P1793602","status":"COMPLETED","payment_source":{"paypal":{"email_address":"sb-vio6941408968@personal.example.com","account_id":"8JHXFTMN52DXL","account_status":"VERIFIED","name":{"given_name":"John","surname":"Doe"},"address":{"country_code":"VE"}}},"purchase_units":[{"reference_id":"default","payments":{"captures":[{"id":"9UD62152EW644603E","status":"COMPLETED","amount":{"currency_code":"USD","value":"24.98"},"final_capture":true,"seller_protection":{"status":"ELIGIBLE","dispute_categories":["ITEM_NOT_RECEIVED","UNAUTHORIZED_TRANSACTION"]},"seller_receivable_breakdown":{"gross_amount":{"currency_code":"USD","value":"24.98"},"paypal_fee":{"currency_code":"USD","value":"1.65"},"net_amount":{"currency_code":"USD","value":"23.33"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/payments/captures/9UD62152EW644603E","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v2/payments/captures/9UD62152EW644603E/refund","rel":"refund","method":"POST"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/715327203P1793602","rel":"up","method":"GET"}],"create_time":"2025-06-26T04:19:06Z","update_time":"2025-06-26T04:19:06Z"}]}}],"payer":{"name":{"given_name":"John","surname":"Doe"},"email_address":"sb-vio6941408968@personal.example.com","payer_id":"8JHXFTMN52DXL","address":{"country_code":"VE"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/715327203P1793602","rel":"self","method":"GET"}]}
+✅ Pago completado. Captura válida.
+📝 Iniciando inserción de orden en la base de datos...
+🔢 Valores para insertar:
+Array
+(
+    [0] => 4
+    [1] => jazfat2159@gmail.com
+    [2] => 24.98
+    [3] => USD
+    [4] => paypal
+    [5] => procesando
+    [6] => pagado
+    [7] => 
+    [8] => 0
+    [9] => 106.1685
+    [10] => 4100
+)
+✅ Orden insertada correctamente.
+🚀 Iniciando capture_paypal_order_debug.php
+✅ Datos recibidos: {"orderID":"7JS27317FA002404H","csrf_token":"5a1dbf83509bf5bf00d5a26015e1150ce75cd385f52d4ec4b36060e71d1e5c83"}
+✅ checkout_data presente.
+📡 Enviando solicitud a PayPal...
+📥 Respuesta PayPal HTTP 201: {"id":"7JS27317FA002404H","status":"COMPLETED","payment_source":{"paypal":{"email_address":"sb-vio6941408968@personal.example.com","account_id":"8JHXFTMN52DXL","account_status":"VERIFIED","name":{"given_name":"John","surname":"Doe"},"address":{"country_code":"VE"}}},"purchase_units":[{"reference_id":"default","payments":{"captures":[{"id":"7XT034589D682731M","status":"COMPLETED","amount":{"currency_code":"USD","value":"24.98"},"final_capture":true,"seller_protection":{"status":"ELIGIBLE","dispute_categories":["ITEM_NOT_RECEIVED","UNAUTHORIZED_TRANSACTION"]},"seller_receivable_breakdown":{"gross_amount":{"currency_code":"USD","value":"24.98"},"paypal_fee":{"currency_code":"USD","value":"1.65"},"net_amount":{"currency_code":"USD","value":"23.33"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/payments/captures/7XT034589D682731M","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v2/payments/captures/7XT034589D682731M/refund","rel":"refund","method":"POST"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/7JS27317FA002404H","rel":"up","method":"GET"}],"create_time":"2025-06-26T04:21:28Z","update_time":"2025-06-26T04:21:28Z"}]}}],"payer":{"name":{"given_name":"John","surname":"Doe"},"email_address":"sb-vio6941408968@personal.example.com","payer_id":"8JHXFTMN52DXL","address":{"country_code":"VE"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/7JS27317FA002404H","rel":"self","method":"GET"}]}
+✅ Pago completado. Captura válida.
+📝 Iniciando inserción de orden en la base de datos...
+🔢 Valores para insertar:
+Array
+(
+    [0] => 4
+    [1] => jazfat2159@gmail.com
+    [2] => 24.98
+    [3] => USD
+    [4] => paypal
+    [5] => procesando
+    [6] => pagado
+    [7] => 
+    [8] => 0
+    [9] => 106.1685
+    [10] => 4100
+)
+✅ Orden insertada correctamente.
+📦 Iniciando inserción de productos del carrito...
+🛒 Producto ID 1 - Cantidad:  - Precio unitario: 
+🚀 Iniciando capture_paypal_order_debug.php
+✅ Datos recibidos: {"orderID":"2PD50283T5859994X","csrf_token":"5a1dbf83509bf5bf00d5a26015e1150ce75cd385f52d4ec4b36060e71d1e5c83"}
+✅ checkout_data presente.
+📡 Enviando solicitud a PayPal...
+📥 Respuesta PayPal HTTP 201: {"id":"2PD50283T5859994X","status":"COMPLETED","payment_source":{"paypal":{"email_address":"sb-vio6941408968@personal.example.com","account_id":"8JHXFTMN52DXL","account_status":"VERIFIED","name":{"given_name":"John","surname":"Doe"},"address":{"country_code":"VE"}}},"purchase_units":[{"reference_id":"default","payments":{"captures":[{"id":"47E65209UV453140M","status":"COMPLETED","amount":{"currency_code":"USD","value":"24.98"},"final_capture":true,"seller_protection":{"status":"ELIGIBLE","dispute_categories":["ITEM_NOT_RECEIVED","UNAUTHORIZED_TRANSACTION"]},"seller_receivable_breakdown":{"gross_amount":{"currency_code":"USD","value":"24.98"},"paypal_fee":{"currency_code":"USD","value":"1.65"},"net_amount":{"currency_code":"USD","value":"23.33"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/payments/captures/47E65209UV453140M","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v2/payments/captures/47E65209UV453140M/refund","rel":"refund","method":"POST"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/2PD50283T5859994X","rel":"up","method":"GET"}],"create_time":"2025-06-26T04:23:36Z","update_time":"2025-06-26T04:23:36Z"}]}}],"payer":{"name":{"given_name":"John","surname":"Doe"},"email_address":"sb-vio6941408968@personal.example.com","payer_id":"8JHXFTMN52DXL","address":{"country_code":"VE"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/2PD50283T5859994X","rel":"self","method":"GET"}]}
+✅ Pago completado. Captura válida.
+📝 Iniciando inserción de orden en la base de datos...
+🔢 Valores para insertar:
+Array
+(
+    [0] => 4
+    [1] => jazfat2159@gmail.com
+    [2] => 24.98
+    [3] => USD
+    [4] => paypal
+    [5] => procesando
+    [6] => pagado
+    [7] => 
+    [8] => 0
+    [9] => 106.1685
+    [10] => 4100
+)
+✅ Orden insertada correctamente.
+📦 Iniciando inserción de productos del carrito...
+🧺 Carrito completo: Array
+(
+    [1] => 1
+)
+
+🛒 Producto ID 1 - Cantidad:  - Precio unitario: 
+🚀 Iniciando capture_paypal_order_debug.php
+✅ Datos recibidos: {"orderID":"9NB00203AU010525A","csrf_token":"5a1dbf83509bf5bf00d5a26015e1150ce75cd385f52d4ec4b36060e71d1e5c83"}
+✅ checkout_data presente.
+📡 Enviando solicitud a PayPal...
+📥 Respuesta PayPal HTTP 201: {"id":"9NB00203AU010525A","status":"COMPLETED","payment_source":{"paypal":{"email_address":"sb-vio6941408968@personal.example.com","account_id":"8JHXFTMN52DXL","account_status":"VERIFIED","name":{"given_name":"John","surname":"Doe"},"address":{"country_code":"VE"}}},"purchase_units":[{"reference_id":"default","payments":{"captures":[{"id":"5HW759402Y7042934","status":"COMPLETED","amount":{"currency_code":"USD","value":"24.98"},"final_capture":true,"seller_protection":{"status":"ELIGIBLE","dispute_categories":["ITEM_NOT_RECEIVED","UNAUTHORIZED_TRANSACTION"]},"seller_receivable_breakdown":{"gross_amount":{"currency_code":"USD","value":"24.98"},"paypal_fee":{"currency_code":"USD","value":"1.65"},"net_amount":{"currency_code":"USD","value":"23.33"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/payments/captures/5HW759402Y7042934","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v2/payments/captures/5HW759402Y7042934/refund","rel":"refund","method":"POST"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/9NB00203AU010525A","rel":"up","method":"GET"}],"create_time":"2025-06-26T04:29:31Z","update_time":"2025-06-26T04:29:31Z"}]}}],"payer":{"name":{"given_name":"John","surname":"Doe"},"email_address":"sb-vio6941408968@personal.example.com","payer_id":"8JHXFTMN52DXL","address":{"country_code":"VE"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/9NB00203AU010525A","rel":"self","method":"GET"}]}
+✅ Pago completado. Captura válida.
+📝 Iniciando inserción de orden en la base de datos...
+🔢 Valores para insertar:
+Array
+(
+    [0] => 4
+    [1] => jazfat2159@gmail.com
+    [2] => 24.98
+    [3] => USD
+    [4] => paypal
+    [5] => procesando
+    [6] => pagado
+    [7] => 
+    [8] => 0
+    [9] => 106.1685
+    [10] => 4100
+)
+✅ Orden insertada correctamente.
+📦 Iniciando inserción de productos del carrito...
+🧺 Carrito completo: Array
+(
+    [1] => 1
+)
+
+🛒 Producto ID 1 - Cantidad:  - Precio unitario: 
