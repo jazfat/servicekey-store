@@ -1,0 +1,1130 @@
+/* ================================================================ */
+/* ===         HOJA DE ESTILOS DEL PANEL DE ADMINISTRACIÓN      === */
+/* ================================================================ */
+
+/* --- Variables Globales (Asegura que estén disponibles si este archivo se carga solo) --- */
+:root {
+    --primary-color: #6a0dad;      /* Morado oscuro */
+    --secondary-color: #24609b;    /* Gris azulado oscuro */
+    --accent-color: #00ffff;       /* Cian brillante para destacar */
+    --bg-color: #1f1f3a;           /* Fondo principal muy oscuro */
+    --text-color: #e0e0e0;         /* Texto claro */
+    --card-bg: #1f1f3a;            /* Fondo de tarjetas y paneles */
+    --success-color: #2ecc71;      /* Verde para éxito */
+    --error-color: #e74c3c;        /* Rojo para errores */
+    --warning-color: #f39c12;      /* Naranja para advertencias */
+    --info-color: #3498db;         /* Azul para información */
+    --text-color-light: #bdc3c7;   /* Texto más claro, como para labels o descripciones */
+    --text-color-muted: #95a5a6;
+
+    body.admin-body .text-muted {
+    color: var(--text-color-muted) !important; /* Usar la nueva variable o un color directo */
+    /* Puedes probar con #95a5a6 (un gris más claro) o #E0E0E0 (tu text-color principal) con menos opacidad */
+    /* color: rgba(var(--text-color-rgb), 0.7) !important; */ /* Otra opción: 70% de opacidad de tu color principal */
+}
+
+/* Asegurar que las pequeñas etiquetas en los formularios también sean visibles */
+.admin-form small.form-text.text-muted {
+    color: var(--text-color-muted) !important; /* Asegura que también se aplica a estas */
+    display: block; /* A menudo, estas pequeñas etiquetas deben ocupar su propia línea */
+    margin-top: 0.25rem; /* Pequeño margen superior para separarlas del input */
+}
+
+    /* Variables de espaciado y radios */
+    --admin-border-radius: 8px;
+    --admin-padding-lg: 2rem;   /* 32px */
+    --admin-padding-md: 1.5rem; /* 24px */
+    --admin-padding-sm: 1rem;   /* 16px */
+    --admin-gap-lg: 2.5rem;     /* 40px */
+    --admin-gap-md: 1.5rem;     /* 24px */
+    --spacing-xs: 0.5rem; /* 8px */
+
+    /* Variables para inputs unificados */
+    --input-padding-y: 0.75rem;
+    --input-padding-x: 1rem;
+    --input-font-size: 1rem;
+
+    /* RGB de colores para rgba() */
+    --primary-color-rgb: 106, 13, 173;
+    --accent-color-rgb: 0, 255, 255;
+    --bg-color-rgb: 26, 26, 46;
+    --success-color-rgb: 46, 204, 113;
+    --error-color-rgb: 231, 76, 60;
+    --warning-color-rgb: 243, 156, 18;
+    --info-color-rgb: 52, 152, 219;
+}
+
+/* --- Estilo Base para el Cuerpo del Admin --- */
+body.admin-body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-admin-panel {
+    width: 90%;
+    max-width: 1400px;
+    margin: var(--admin-padding-lg) auto;
+    padding: 0 var(--admin-padding-sm);
+    flex-grow: 1;
+}
+
+/* Estilos de encabezados */
+.container-admin-panel h1 {
+    color: var(--accent-color);
+    margin-bottom: var(--admin-gap-md);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    text-align: left;
+    border-bottom: 2px solid rgba(var(--primary-color-rgb), 0.3);
+    padding-bottom: var(--spacing-xs);
+    font-weight: 700;
+}
+.container-admin-panel h2 {
+    color: var(--text-color);
+    margin-top: var(--admin-gap-lg);
+    margin-bottom: var(--admin-gap-md);
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    border-bottom: 1px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+.admin-form .form-section h3 {
+    margin-top: 0;
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--secondary-color);
+    padding-bottom: 0.8rem;
+    font-size: 1.3rem;
+    margin-bottom: var(--admin-padding-md);
+    font-weight: 600;
+}
+
+
+/* --- Navegación del Admin (admin_nav.php) --- */
+.admin-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--admin-padding-sm);
+    background-color: var(--card-bg);
+    padding: var(--admin-padding-sm) var(--admin-padding-md);
+    border-radius: var(--admin-border-radius);
+    margin-bottom: var(--admin-gap-lg);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    align-items: center;
+    justify-content: flex-start;
+}
+.admin-nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-weight: 500;
+}
+.admin-nav a:hover,
+.admin-nav a:focus {
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+    outline: none;
+}
+.admin-nav a.logout {
+    margin-left: auto;
+    color: var(--error-color);
+    font-weight: 700;
+}
+.admin-nav a.logout:hover,
+.admin-nav a.logout:focus {
+    background-color: var(--error-color);
+    color: white;
+}
+.admin-nav-divider {
+    border: none;
+    border-top: 1px solid var(--secondary-color);
+    margin: var(--admin-padding-md) 0;
+}
+
+/* --- Header de las Secciones (admin_header_section) --- */
+.admin-header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--admin-gap-md);
+    flex-wrap: wrap;
+    gap: var(--admin-padding-md);
+}
+
+
+/* --- Tablas del Admin (Reutilizadas en varias páginas) --- */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--admin-padding-sm);
+    font-size: 0.95rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background-color: var(--card-bg);
+    border-radius: var(--admin-border-radius);
+    overflow: hidden;
+    min-width: 600px;
+}
+.admin-table th,
+.admin-table td {
+    padding: 1rem;
+    border: 1px solid var(--secondary-color);
+    text-align: left;
+    vertical-align: middle;
+    color: var(--text-color);
+}
+.admin-table thead th {
+    background-color: var(--secondary-color);
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}
+.admin-table tbody tr:nth-child(even) {
+    background-color: rgba(0,0,0,0.1);
+}
+.admin-table tbody tr:hover {
+    background-color: rgba(var(--accent-color-rgb), 0.05);
+}
+
+/* Estilo para filas sin datos */
+.admin-table tbody tr td[colspan] {
+    text-align: center;
+    font-style: italic;
+    color: var(--text-color-light);
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+}
+
+
+.actions-cell {
+    text-align: right;
+    white-space: nowrap;
+}
+.product-thumbnail, .logo-thumbnail {
+    max-height: 50px;
+    width: auto;
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    display: inline-block;
+}
+.btn-action {
+    background: none;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    color: var(--text-color-light);
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.btn-action:hover,
+.btn-action:focus {
+    color: white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    outline: none;
+    text-decoration: none;
+}
+.btn-action.edit { color: #f39c12; border-color: #f39c12; }
+.btn-action.edit:hover { background-color: #f39c12; color: white; }
+.btn-action.delete { color: var(--error-color); border-color: var(--error-color); }
+.btn-action.delete:hover { background-color: var(--error-color); color: white; }
+.btn-action.view { color: var(--primary-color); border-color: var(--primary-color); }
+.btn-action.view:hover { background-color: var(--primary-color); color: white; }
+.btn-action.approve { color: var(--success-color); border-color: var(--success-color); }
+.btn-action.approve:hover { background-color: var(--success-color); color: white; }
+.btn-action.reject { color: var(--error-color); border-color: var(--error-color); }
+.btn-action.reject:hover { background-color: var(--error-color); color: white; }
+
+.btn-action:disabled,
+.btn-action.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+    border-color: var(--secondary-color);
+    box-shadow: none;
+}
+
+
+/* --- Formularios del Admin (Para Crear/Editar Entidades) --- */
+.admin-form .form-section {
+    background: var(--card-bg);
+    padding: var(--admin-padding-lg);
+    border-radius: var(--admin-border-radius);
+    margin-bottom: var(--admin-gap-lg);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-top: 3px solid var(--primary-color);
+}
+.admin-form .form-group {
+    margin-bottom: var(--admin-padding-md);
+}
+.admin-form label {
+    color: var(--text-color-light);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+/* UNIFICACIÓN DE ESTILOS DE INPUTS */
+.admin-form input[type="text"],
+.admin-form input[type="number"],
+.admin-form input[type="email"],
+.admin-form input[type="password"],
+.admin-form input[type="url"],
+.admin-form input[type="date"],
+.admin-form textarea,
+.admin-form select,
+.login-box .form-group input[type="email"],
+.login-box .form-group input[type="password"] {
+    width: 100%;
+    padding: var(--input-padding-y) var(--input-padding-x);
+    background: var(--bg-color);
+    border: 1px solid var(--secondary-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: var(--input-font-size);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    height: auto;
+}
+
+/* Estilos de enfoque para inputs unificados */
+.admin-form input[type="text"]:focus,
+.admin-form input[type="number"]:focus,
+.admin-form input[type="email"]:focus,
+.admin-form input[type="password"]:focus,
+.admin-form input[type="url"]:focus,
+.admin-form input[type="date"]:focus,
+.admin-form textarea:focus,
+.admin-form select:focus,
+.login-box .form-group input[type="email"]:focus,
+.login-box .form-group input[type="password"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem rgba(var(--accent-color-rgb), 0.25);
+}
+
+/* Estilos para inputs deshabilitados/solo lectura */
+.admin-form input:disabled,
+.admin-form input[readonly],
+.admin-form textarea:disabled,
+.admin-form textarea[readonly],
+.admin-form select:disabled {
+    background-color: var(--secondary-color);
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* Ajuste específico para el select de estado en view_order.php (mantener más compacto) */
+#order_status, #payment_status {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+    height: auto;
+}
+
+.admin-form .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--admin-padding-md);
+}
+.admin-form-layout {
+    display: grid;
+    /* Ajustado para mayor flexibilidad, especialmente en manage_settings */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Permite 1 o 2 columnas según el espacio */
+    gap: var(--admin-gap-lg);
+    align-items: flex-start;
+}
+.multi-select-box {
+    height: 200px;
+    overflow-y: auto;
+    border: 1px solid var(--secondary-color);
+    padding: 0.5rem;
+    border-radius: 5px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    width: 100%;
+}
+.multi-select-box option {
+    padding: 0.5rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+.multi-select-box option:checked,
+.multi-select-box option:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+.form-check-input {
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+    margin-top: 0.25em;
+    height: 1.25em;
+    width: 1.25em;
+    border: 1px solid var(--secondary-color);
+    background-color: var(--bg-color);
+}
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(var(--primary-color-rgb), 0.25);
+}
+.form-check-label {
+    color: var(--text-color);
+    font-weight: normal;
+    padding-left: 0.25rem;
+    line-height: 1.25em;
+}
+.form-check.form-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-left: 0;
+}
+.form-check.form-switch .form-check-input {
+    margin-left: 0;
+}
+.checkbox-scroll-box {
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--admin-border-radius);
+    padding: 0.5rem;
+    background-color: var(--bg-color);
+}
+.checkbox-scroll-box .form-check {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+
+/* --- Dashboard (admin/index.php) --- */
+.dashboard-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--admin-gap-md);
+    margin-top: var(--admin-padding-md);
+}
+.stat-card {
+    background: var(--card-bg);
+    padding: var(--admin-padding-md);
+    border-radius: var(--admin-border-radius);
+    display: flex;
+    align-items: center;
+    gap: var(--admin-padding-md);
+    border-left: 5px solid var(--accent-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    color: var(--text-color);
+}
+.stat-card .bi {
+    font-size: 3rem;
+    color: var(--accent-color);
+    flex-shrink: 0;
+}
+.stat-info {
+    display: flex;
+    flex-direction: column;
+}
+.stat-title {
+    font-size: 0.9rem;
+    color: var(--text-color-light);
+    margin-bottom: 0.2rem;
+}
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+.dashboard-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--admin-gap-lg);
+    margin-top: var(--admin-gap-lg);
+    align-items: flex-start;
+}
+
+.low-stock-row strong {
+    color: var(--error-color);
+    font-weight: 700;
+}
+/* Mensaje para tablas o secciones sin datos */
+.info-message {
+    background-color: rgba(var(--info-color-rgb), 0.1);
+    color: var(--info-color);
+    border: 1px solid var(--info-color);
+    padding: 1rem;
+    border-radius: var(--admin-border-radius);
+    margin-top: var(--admin-padding-sm);
+    text-align: center;
+    font-style: italic;
+}
+.info-message a {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* Mensajes Flash (arriba de la página) */
+.success-message, .error-message, .warning-message {
+    padding: 1rem;
+    border-radius: var(--admin-border-radius);
+    margin-bottom: var(--admin-padding-md);
+    font-weight: 500;
+    text-align: center;
+}
+.success-message {
+    background-color: rgba(var(--success-color-rgb), 0.2);
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+}
+.error-message {
+    background-color: rgba(var(--error-color-rgb), 0.2);
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+}
+.warning-message {
+    background-color: rgba(var(--warning-color-rgb), 0.2);
+    color: var(--warning-color);
+    border: 1px solid var(--warning-color);
+}
+
+
+/* Gráficos del Dashboard (Chart.js) */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--admin-gap-lg);
+    margin-top: var(--admin-gap-lg);
+}
+
+.chart-container {
+    background-color: var(--card-bg);
+    padding: var(--admin-padding-lg);
+    border-radius: var(--admin-border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+}
+
+.chart-container h2 {
+    margin-top: 0;
+    margin-bottom: var(--admin-padding-md);
+    color: var(--text-color);
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+}
+
+.chart-container canvas {
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
+}
+
+.no-data-message {
+    color: var(--text-color-light);
+    font-style: italic;
+    text-align: center;
+    margin-top: var(--admin-padding-md);
+}
+
+/* --- ESTILOS DE ICONOS REFINADOS Y FORZADOS --- */
+.status-badge {
+    padding: 0.3em 0.6em;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+    display: inline-block;
+    margin-right: 5px;
+    color: white;
+}
+.status-completado, .status-pagado, .status-disponible { background-color: var(--success-color); }
+.status-pendiente { background-color: var(--warning-color); }
+.status-en_verificacion { background-color: var(--info-color); }
+.status-cancelado, .status-agotado, .status-invalida { background-color: var(--error-color); }
+.status-procesando { background-color: #8e44ad; }
+.status-vendida { background-color: #5d5d6d; }
+
+
+.status-badge > .bi,
+.admin-table .status-icon {
+    font-size: 1.2rem;
+    vertical-align: middle;
+    color: inherit !important;
+}
+
+.status-icon-approved { color: var(--success-color) !important; }
+.status-icon-denied { color: var(--error-color) !important; }
+.status-icon-featured { color: var(--accent-color) !important; }
+.status-icon-inactive { color: var(--text-color-light) !important; }
+
+.btn-action .bi {
+    color: inherit !important;
+    font-size: 1rem;
+}
+
+
+/* --- Estilos para la página de Login del Admin --- */
+body.admin-login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #1a1a2e, #2c3e50, #6a0dad, #00ffff);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.login-box {
+    background: var(--card-bg);
+    padding: var(--admin-gap-lg);
+    border-radius: var(--admin-border-radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    width: 100%;
+    max-width: 400px;
+    border-top: 4px solid var(--accent-color);
+}
+.login-logo {
+    text-align: center;
+    margin-bottom: var(--admin-padding-md);
+}
+.login-logo img {
+    max-height: 60px;
+    width: auto;
+}
+.login-box h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: var(--admin-padding-md);
+    color: var(--text-color);
+}
+.login-footer {
+    text-align: center;
+    margin-top: var(--admin-padding-md);
+}
+.login-footer a {
+    color: var(--text-color-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.login-footer a:hover {
+    color: var(--accent-color);
+}
+
+/* --- Estilos para forms-inline y dropdowns (ej. manage_licenses) --- */
+.admin-form-inline {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--admin-padding-md);
+    margin-bottom: var(--admin-gap-md);
+    flex-wrap: wrap;
+}
+.admin-form-inline .form-group {
+    flex-grow: 1;
+    margin-bottom: 0;
+    min-width: 180px;
+}
+.admin-form-inline .form-group label {
+    white-space: nowrap;
+    margin-bottom: 0.25rem;
+}
+.admin-form-inline .form-select,
+.admin-form-inline .form-control {
+    min-width: 200px;
+    height: calc(var(--input-padding-y) * 2 + var(--input-font-size) * 1.2);
+    padding: var(--input-padding-y) var(--input-padding-x);
+}
+.admin-form-inline .btn {
+    height: calc(var(--input-padding-y) * 2 + var(--input-font-size) * 1.2);
+    padding-top: var(--input-padding-y);
+    padding-bottom: var(--input-padding-y);
+    font-size: var(--input-font-size);
+}
+
+/* Tablas con scroll */
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+    margin-top: var(--admin-padding-sm);
+    border-radius: var(--admin-border-radius);
+}
+/* Estilos específicos para la tabla de licencias en manage_licenses.php */
+.admin-table .license-key-display {
+    font-family: monospace;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+    color: var(--text-color-light);
+    word-break: break-all;
+}
+
+
+/* REFINAMIENTO DE ESTILOS PARA LA TABLA DE ÍTEMS DE ORDEN EN VIEW_ORDER.PHP */
+.admin-table.order-items-table {
+    min-width: 700px;
+}
+
+.admin-table .product-info-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.admin-table .product-thumbnail {
+    max-height: 60px;
+    width: auto;
+    background: #fff;
+    padding: 3px;
+    border-radius: 4px;
+    object-fit: contain;
+    margin-bottom: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.admin-table .product-name-display {
+    display: block;
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    word-break: break-word;
+}
+.admin-table td small {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-color-light);
+    word-break: break-word;
+}
+
+.admin-table td .license-display-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+}
+.admin-table .status-badge {
+    margin-bottom: 0;
+}
+
+.admin-table .license-buttons {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+.admin-table .btn-action.btn-view-key,
+.admin-table .btn-action.btn-replace-license {
+    display: inline-flex;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0.4rem 0.6rem;
+    font-size: 1rem;
+}
+
+.form-inline-assign {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 10px;
+    width: 100%;
+}
+.form-inline-assign select.form-control-sm {
+    max-width: 100%;
+    min-width: unset;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.6rem;
+}
+.form-inline-assign .btn {
+    width: auto;
+}
+
+/* Botones al final de los formularios */
+.text-end {
+    text-align: right;
+}
+.btn-large {
+    padding: 0.8rem 1.8rem;
+    font-size: 1.1rem;
+    min-width: 150px;
+}
+.text-end .btn {
+    margin-left: 0.75rem;
+}
+.text-end .btn:first-child {
+    margin-left: 0;
+}
+
+
+/* Modal de Licencias */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-content {
+    background-color: var(--card-bg);
+    padding: var(--admin-padding-lg);
+    border-radius: var(--admin-border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    color: var(--text-color);
+    animation: fadeIn 0.3s ease-out;
+}
+.modal-content h3 {
+    color: var(--accent-color);
+    margin-top: 0;
+    border-bottom: 1px solid var(--secondary-color);
+    padding-bottom: 0.8rem;
+    margin-bottom: var(--admin-padding-md);
+    font-size: 1.5rem;
+}
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    color: var(--text-color-light);
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+.modal-close:hover {
+    color: var(--error-color);
+}
+.license-key-box {
+    background-color: var(--bg-color);
+    border: 1px dashed var(--accent-color);
+    padding: 1rem;
+    margin: 1rem 0;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: monospace;
+    word-break: break-all;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+.license-key-box #modal-license-key {
+    font-weight: bold;
+    color: var(--text-color);
+    flex-grow: 1;
+}
+.license-key-box .btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.license-key-box .btn-secondary:hover {
+    background-color: var(--primary-color);
+}
+.modal-content p {
+    text-align: center;
+    color: var(--text-color-light);
+    font-size: 0.9rem;
+}
+
+/* Animación de fade in para modales */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* --- PAGINACIÓN (PARA TABLAS GRANDES COMO ÓRDENES, PRODUCTOS) --- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: var(--admin-padding-md) 0;
+    margin-top: var(--admin-padding-md);
+    background-color: var(--card-bg);
+    border-radius: var(--admin-border-radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.pagination a, .pagination span {
+    color: var(--text-color-light);
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    margin: 0 0.25rem; /* Espacio entre los elementos de paginación */
+    border-radius: 5px;
+    font-weight: 500;
+}
+.pagination a:hover {
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+}
+.pagination .current-page {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 700;
+}
+.pagination .current-page:hover {
+    background-color: var(--primary-color); /* No cambia al hacer hover si es la página actual */
+    cursor: default;
+}
+
+
+/* ================================================================ */
+/* === 4. RESPONSIVE DESIGN: Media Queries para Admin Panel     === */
+/* ================================================================ */
+
+/* Tablet y pantallas medianas */
+@media (max-width: 1200px) {
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+    /* Ajuste para formularios con 2 columnas que se vuelven 1 en pantallas más pequeñas */
+    .admin-form-layout {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas más pequeñas */
+        gap: var(--admin-gap-md);
+    }
+    .admin-form .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 992px) {
+    .container-admin-panel {
+        width: 95%;
+        padding: var(--admin-padding-md) var(--admin-padding-sm);
+    }
+    .admin-nav {
+        justify-content: center;
+    }
+    .admin-nav a.logout {
+        margin-left: unset;
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid var(--secondary-color);
+        padding-top: 0.8rem;
+        margin-top: 0.5rem;
+    }
+    .admin-form-inline {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .admin-form-inline .form-group {
+        min-width: unset;
+    }
+    .dashboard-columns {
+        grid-template-columns: 1fr;
+        gap: var(--admin-gap-md);
+    }
+    
+    /* Reajuste para manage_logos: form-column-sidebar y form-column-main */
+    .form-column-sidebar, .form-column-main { /* Reset para que no herede anchos fijos si los hubiere */
+        width: 100%;
+    }
+    .admin-table {
+        min-width: unset; /* Permite que la tabla se ajuste al 100% en móvil */
+    }
+}
+
+/* Teléfonos móviles pequeños */
+@media (max-width: 768px) {
+    .admin-nav {
+        gap: 0.5rem;
+        padding: 0.8rem;
+    }
+    .admin-nav a {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+        flex-grow: 1;
+        justify-content: center;
+        text-align: center;
+    }
+    .admin-header-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+    .admin-header-section h1 {
+        font-size: 1.5rem;
+        text-align: center;
+        width: 100%;
+    }
+    /* Estilos de la tabla apilada en móviles */
+    .admin-table {
+        width: 100%;
+    }
+    .admin-table th, .admin-table td {
+        padding: 0.6rem;
+    }
+    .admin-table th, .admin-table td:nth-child(1),
+    .admin-table td:nth-child(2), .admin-table td:nth-child(3),
+    .admin-table td:nth-child(4), .admin-table td:nth-child(5),
+    .admin-table td:nth-child(6), .admin-table td:nth-child(7),
+    .admin-table td:nth-child(8) /* Ajusta según el número máximo de columnas que puedas tener */ {
+        width: auto;
+        max-width: unset;
+        min-width: unset;
+        display: block;
+        text-align: left;
+        padding: 0.75rem 1rem;
+        border: none;
+        border-bottom: 1px solid var(--secondary-color);
+    }
+    .admin-table tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid var(--secondary-color);
+        border-radius: var(--admin-border-radius);
+        overflow: hidden;
+    }
+    .admin-table thead {
+        display: none;
+    }
+    .admin-table tbody {
+        display: block;
+        width: 100%;
+    }
+    .admin-table td:last-child {
+        border-bottom: none;
+    }
+    .admin-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: inline-block;
+        width: 100px;
+        color: var(--accent-color);
+        margin-right: 1rem;
+        vertical-align: top;
+    }
+    .admin-table td:nth-child(1),
+    .admin-table td:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .admin-table .product-thumbnail {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .admin-table .license-buttons {
+        justify-content: flex-start;
+    }
+
+    .admin-table td.actions-cell {
+        text-align: left;
+        padding-top: 0.5rem;
+    }
+    .admin-table .btn-action {
+        margin-left: 0;
+        margin-right: 0.5rem;
+    }
+    .form-inline-assign {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+    }
+    .form-inline-assign select.form-control-sm {
+        max-width: 100%;
+        min-width: unset;
+    }
+
+    /* Otros elementos globales del admin para móviles */
+    .product-thumbnail-large { /* Ajuste para imágenes de logo/QR en settings */
+        max-width: 150px;
+        height: auto;
+        display: block;
+        margin: 1rem 0;
+    }
+
+    .product-thumbnail2 {
+        max-height: 240px;
+    }
+
+    .product-thumbnail {
+        max-height: 40px;
+    }
+    .btn-action {
+        padding: 4px 6px;
+        font-size: 0.9rem;
+        margin-left: 3px;
+    }
+    .login-box {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    .admin-form .form-section {
+        padding: 1.5rem;
+    }
+    .admin-form h3 {
+        font-size: 1.1rem;
+    }
+    .dashboard-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .stat-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .stat-card .bi {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .stat-value {
+        font-size: 1.5rem;
+    }
+    .charts-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .chart-container h2 {
+        font-size: 1.2rem;
+    }
+}
+

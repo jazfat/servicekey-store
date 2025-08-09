@@ -1,0 +1,14 @@
+[2025-06-26 07:06:39] ==== INICIO capture_paypal_order.php ====
+[2025-06-26 07:06:39] Archivos requeridos cargados.
+[2025-06-26 07:06:39] 📥 RAW POST DATA: 
+[2025-06-26 07:06:39] ❌ JSON inválido recibido
+[TEST] Script ejecutado correctamente.
+[POST] Array
+(
+)
+
+[RAW INPUT] 
+
+🚀 Iniciando capture_paypal_order.php
+📥 RAW INPUT: 
+❌ Error al decodificar JSON: Syntax error

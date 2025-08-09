@@ -1,0 +1,23 @@
+{
+  "name": "ServiceKey Admin Panel",
+  "short_name": "AdminSK",
+  "description": "Panel de administración de ServiceKey Store",
+  "start_url": "./index.php", 
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#6a0dad",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./assets/images/android-chrome-192x192.png", 
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./assets/images/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}

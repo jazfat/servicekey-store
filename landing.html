@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Próximo Lanzamiento | [Nombre de tu Producto/Servicio]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #1a1a2e;
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.hero {
+    text-align: center;
+    margin: 5rem 0;
+}
+
+.title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #6a0dad, #00ffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+}
+
+.highlight {
+    color: #00ffff;
+    font-weight: bold;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.countdown-item {
+    background: rgba(106, 13, 173, 0.2);
+    border: 1px solid #6a0dad;
+    border-radius: 8px;
+    padding: 1.5rem;
+    min-width: 100px;
+    backdrop-filter: blur(5px);
+}
+
+.countdown-item span:first-child {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00ffff;
+    display: block;
+}
+
+.cta-box {
+    background: rgba(26, 26, 46, 0.7);
+    border: 1px solid #6a0dad;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 30px rgba(106, 13, 173, 0.3);
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.signup-form input {
+    padding: 1rem;
+    border: 1px solid #6a0dad;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 1rem;
+}
+
+.btn-pulse {
+    background: linear-gradient(45deg, #6a0dad, #00ffff);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.btn-pulse:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+}
+
+.trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.trust-badges img {
+    height: 40px;
+    opacity: 0.7;
+    transition: all 0.3s;
+}
+
+.icon-hover:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+footer {
+    text-align: center;
+    margin-top: 5rem;
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
+
+/* Efectos especiales */
+.glitch {
+    animation: glitch-effect 2s infinite;
+}
+
+@keyframes glitch-effect {
+    0% { transform: translate(0); }
+    20% { transform: translate(-3px, 3px); }
+    40% { transform: translate(-3px, -3px); }
+    60% { transform: translate(3px, 3px); }
+    80% { transform: translate(3px, -3px); }
+    100% { transform: translate(0); }
+}
+
+/* Fondo de matriz animado */
+#matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.15;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="logo-tech.png" alt="Logo">
+            </div>
+        </header>
+
+        <main>
+            <div class="hero">
+                <h1 class="title glitch">¡Estamos por lanzar!</h1>
+                <p class="subtitle">Obtén acceso exclusivo a <span class="highlight">descuentos en software</span> al unirte a nuestra lista.</p>
+                
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <span id="days">00</span>
+                        <span>Días</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <span>Horas</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <span>Min</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <span>Seg</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <form class="signup-form">
+                    <input type="email" placeholder="Tu mejor email" required>
+                    <input type="tel" placeholder="WhatsApp (opcional)">
+                    <button type="submit" class="btn-pulse">¡Quiero mi cupón! <i class="fas fa-gift"></i></button>
+                </form>
+                <div class="trust-badges">
+                    <img src="windows-icon.png" alt="Windows" class="icon-hover">
+                    <img src="office-icon.png" alt="Office" class="icon-hover">
+                    <img src="antivirus-icon.png" alt="Antivirus" class="icon-hover">
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2023 [Tu Empresa]. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <canvas id="matrix-bg"></canvas>
+
+    <script>
+        // Contador regresivo (ajusta la fecha de lanzamiento)
+const launchDate = new Date("2023-12-31T00:00:00").getTime();
+
+const countdown = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = launchDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days.toString().padStart(2, "0");
+    document.getElementById("hours").innerText = hours.toString().padStart(2, "0");
+    document.getElementById("minutes").innerText = minutes.toString().padStart(2, "0");
+    document.getElementById("seconds").innerText = seconds.toString().padStart(2, "0");
+
+    if (distance < 0) {
+        clearInterval(countdown);
+        document.querySelector(".countdown").innerHTML = "<h2>¡Ya estamos en línea!</h2>";
+    }
+}, 1000);
+
+// Efecto Matrix para el fondo
+const canvas = document.getElementById('matrix-bg');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const nums = '0123456789';
+const alphabet = katakana + latin + nums;
+
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+
+const rainDrops = Array.from({ length: columns }).map((_, i) => {
+    return {
+        text: alphabet.charAt(Math.floor(Math.random() * alphabet.length)),
+        x: i * fontSize,
+        y: Math.random() * -1000
+    };
+});
+
+const draw = () => {
+    ctx.fillStyle = 'rgba(26, 26, 46, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.fillStyle = '#6a0dad';
+    ctx.font = `${fontSize}px monospace`;
+    
+    rainDrops.forEach(drop => {
+        ctx.fillText(drop.text, drop.x, drop.y);
+        drop.y += fontSize;
+        
+        if (drop.y > canvas.height && Math.random() > 0.975) {
+            drop.y = -fontSize;
+        }
+        
+        drop.text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+    });
+};
+
+setInterval(draw, 30);
+    </script>
+</body>
+</html>
